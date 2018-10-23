@@ -77,7 +77,7 @@ var game = { // game code
 
   selectEnemy: function (e,v) { 
     if (wins == 2) {
-      $("#" + e).attr("style","visibility:hidden;");
+      $("#" + e).attr("style","visibility:hidden;"); // keeps div spaced when last emeny removed
     } else {
       $("#" + e).attr("style","display: none;");
     }
@@ -137,7 +137,7 @@ $(document).ready(function() {
     game.selectPlayer($(this).attr("id"));
   });
   $(".enemyCard").on("click", function() {
-    if (!inBattle || gameover) {
+    if (!inBattle && !gameover) {
       game.selectEnemy($(this).attr("id"),$(this).attr("value"));
       inBattle = true;
     }

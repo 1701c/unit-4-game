@@ -3,6 +3,8 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: black;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.15rem;
 }
 
 h1 {
@@ -15,12 +17,14 @@ h6 {
   color: white;
   /* font-size: 1.2rem; */
   /* font-family: 'StarTrek'; */
-  font-size: 12pt;
+  font-size: 16pt;
   padding-top: 10px;
 }
 
 p {
   color: white;
+  font-size: 1.2rem;
+  padding-top: 10px;
 }
 
 #playerChar {
@@ -64,6 +68,11 @@ p {
 
 .spacerDiv {
   height: 50px;
+}
+
+.btn {
+  font-size: 14pt;
+  padding: 3px 10px;
 }
 
 @font-face {
