@@ -76,7 +76,11 @@ var game = { // game code
   },
 
   selectEnemy: function (e,v) { 
-    $("#" + e).attr("style","display: none;");
+    if (wins == 2) {
+      $("#" + e).attr("style","visibility:hidden;");
+    } else {
+      $("#" + e).attr("style","display: none;");
+    }
     $("#defender").attr("style","");
     $("#defenderCard").attr("style","");
     $("#defenderName").text(chars.names[v]);
