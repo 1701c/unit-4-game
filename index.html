@@ -11,7 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="assets/javascript/game.js"></script>
-  <title>Document</title>
+  <title>STAR TREK RPG</title>
 </head>
 
 <body>
@@ -22,24 +22,24 @@
       </div>
     </div>
     <div class="row" id="charSelect">
-      <div class="col-2 playerCard text-center" id="playerCard0">
+      <div class="col-2 text-center playerCard rounded" id="playerCard0">
         <div id="playerName0"></div> 
-        <img src="" class="img-fluid playerImage" id="playerImage0">          
+        <img src="" class="img-fluid playerImage rounded" id="playerImage0">          
         <div id="playerHp0"></div>
       </div>
-      <div class="col-2 playerCard text-center"  id="playerCard1">
+      <div class="col-2 playerCard text-center rounded"  id="playerCard1">
         <div id="playerName1"></div> 
-        <img src="" class="img-fluid playerImage" id="playerImage1">          
+        <img src="" class="img-fluid playerImage rounded" id="playerImage1">          
         <div id="playerHp1"></div>
       </div>
-      <div class="col-2 playerCard text-center" id="playerCard2">
+      <div class="col-2 playerCard text-center rounded" id="playerCard2">
         <div id="playerName2"></div> 
-        <img src="" class="img-fluid playerImage" id="playerImage2">          
+        <img src="" class="img-fluid playerImage rounded" id="playerImage2">          
         <div id="playerHp2"></div>
       </div>
-      <div class="col-2 playerCard text-center" id="playerCard3">
+      <div class="col-2 playerCard text-center rounded" id="playerCard3">
         <div id="playerName3"></div> 
-        <img src="" class="img-fluid playerImage" id="playerImage3">          
+        <img src="" class="img-fluid playerImage rounded" id="playerImage3">          
         <div id="playerHp3"></div>
       </div>
     </div>
@@ -47,9 +47,9 @@
       <h6>Your Character</h6>
     </div>
     <div class="row" id="playerChar" style="display: none;">
-      <div class="col-2 text-center" id="heroCard">
+      <div class="col-2 text-center rounded" id="heroCard">
         <div id="heroName"></div> 
-        <img src="" class="img-fluid playerImage" id="heroImage">          
+        <img src="" class="img-fluid playerImage rounded" id="heroImage">          
         <div id="heroHp"></div>
       </div>
     </div>
@@ -57,40 +57,45 @@
       <h6>Enemies Available to Attack</h6>
     </div>
     <div class="row" id="enemyChar" style="display: none;">
-      <div class="col-2 enemyCard text-center" id="enemyCard0">
+      <div class="col-2 enemyCard text-center rounded" id="enemyCard0">
         <div id="enemyName0"></div> 
-        <img src="" class="img-fluid playerImage" id="enemyImage0">          
+        <img src="" class="img-fluid playerImage enemyImage rounded" id="enemyImage0">          
         <div id="enemyHp0"></div>
       </div>
-      <div class="col-2 enemyCard text-center" id="enemyCard1">
+      <div class="col-2 enemyCard text-center rounded" id="enemyCard1">
         <div id="enemyName1"></div> 
-        <img src="" class="img-fluid playerImage" id="enemyImage1">          
+        <img src="" class="img-fluid playerImage enemyImage rounded" id="enemyImage1">          
         <div id="enemyHp1"></div>
       </div>
-      <div class="col-2 enemyCard text-center" id="enemyCard2">
+      <div class="col-2 enemyCard text-center rounded" id="enemyCard2">
         <div id="enemyName2"></div> 
-        <img src="" class="img-fluid playerImage" id="enemyImage2">          
+        <img src="" class="img-fluid playerImage enemyImage rounded" id="enemyImage2">          
         <div id="enemyHp2"></div>
       </div>
+      <div class="spacerDiv"></div>
     </div>
     <div class="row">
       <h6>Fight Section</h6>
     </div>
     <div class="row">
-      <button type="button" class="btn btn-light" id="attackBtn">Attack</button>
+      <button type="button" class="btn btn-light rounded" id="attackBtn">Attack</button>
     </div>
     <div class="row">
       <h6>Defender</h6>
     </div>
     <div class="row" id="defender" style="display: none;">
-      <div class="col-2 text-center" id="defenderCard">
+      <div class="col-2 text-center rounded" id="defenderCard">
         <div id="defenderName"></div> 
-        <img src="" class="img-fluid playerImage" id="defenderImage">          
+        <img src="" class="img-fluid playerImage rounded" id="defenderImage">          
         <div id="defenderHp"></div>
       </div>
-      <div class="col-9 offset-1">
-        <p id="battleLog"></p>
-      </div>          
-    </div>    
+    </div>
+    <div class="row">
+      <p id="battleLog"></p>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-light rounded" id="refreshBtn" style="display: none;">Restart</button>
+    </div>
+  </div>
 </body>
 </html>

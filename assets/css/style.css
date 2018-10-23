@@ -6,15 +6,23 @@ body {
 
 h1 {
   color: white;
+  font-family: 'StarTrek';
+  font-size: 50pt;
 }
 
 h6 {
   color: white;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  /* font-family: 'StarTrek'; */
+  font-size: 12pt;
 }
 
 p {
   color: white;
+}
+
+#playerChar {
+  /* height: 145px; */
 }
 
 .playerCard {
@@ -52,4 +60,16 @@ p {
   border-color: white;
 }
 
+.spacerDiv {
+  height: 150px;
+}
 
+@font-face {
+  font-family: 'StarTrek';
+  src:url('../fonts/StarTrek.ttf.woff') format('woff'),
+      url('../fonts/StarTrek.ttf.svg#StarTrek') format('svg'),
+      url('../fonts/StarTrek.ttf.eot'),
+      url('../fonts/StarTrek.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
