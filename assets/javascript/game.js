@@ -1,6 +1,6 @@
-var inBattle = false;
-var wins = 0;
-gameover = false;
+var inBattle;
+var wins;
+var gameover;
 
 var chars = { // character info and initialization
   names: ["Federation", "Klingon", "Romulan", "Borg"],
@@ -12,7 +12,7 @@ var chars = { // character info and initialization
   index: 0,
   currentEnemy: 0,
 
-  newGame: function () {
+  initVars: function () {
     this.hp = [120, 100, 150, 180];
     this.ap = [8, 16, 7, 4];
   }
@@ -57,38 +57,74 @@ var animate = {
 }
 
 var game = { // game code
-  drawCharDiv: function (parent, child, i) {
-    $('#' + parent).append('<div class="col-2 text-center rounded ' + child + 'Card" id="' + child + 'Card' + i + '">');
-    $('#' + child + 'Card' + i).append(chars.names[i] + '<img src="' + chars.image[i] + '" class="img-fluid ' + child + 'Image" id="' + child + 'Image' + i + '"> HP: ' + chars.hp[i]);
+  newGame: function() {
+    inBattle = false;
+    gameover = false;
+    wins = 0;
+    chars.initVars();
+    for (var i = 0; i < chars.names.length; i++) {
+      game.drawCharDiv('charSelect', 'player', i,2);
+    }
+    $("#title0").removeAttr("style");
+    $("#title1").attr("style", "display: none;");
+    $("#title2").attr("style", "display: none;");
+    $("#logDiv").attr("style", "display: none;");
+    // $('#battleLog').empty();
+    $('#player').empty();
+    $(".btn").attr("style", "display: none;");
+    animate.blink('#title0-col',10);
+    // document.getElementById("heroCard0").style.boxShadow = "10px 20px 30px blue";
+   },
+
+  drawCharDiv: function (parent, child, i, colWidth) {
+    if (colWidth === undefined) {
+      colWidth = 8;
+    }
+    $('#' + parent).append('<div class="col-' + colWidth + ' text-center rounded gameCard ' + child + 'Card" id="' + child + 'Card' + i + '">');
+    $('#' + parent).append('<div class="col-1">');
+    $('#' + child + 'Card' + i).append('<p class="p2" style="text-align:left;">' + chars.names[i] + '<span style="float:right;"> HP: ' + chars.hp[i] + '</span></p>');
+    $('#' + child + 'Card' + i).append('<img src="' + chars.image[i] + '" class="img-fluid shipImage ' + child + 'Image" id="' + child + 'Image' + i + '"></img>');
+    $('#' + child + 'Card' + i).append('<p class="p2" id="card-bottom" style="text-align:left;">' + chars.names[i] + '<span style="float:right;"> HP: ' + chars.hp[i] + '</span></p>');
+    // $("#card-bottom").toggleClass('flip');
+    // animate.blink("#card-bottom",10);
     // $('#' + parent).append('<div class="col-1">');
   },
 
   selectPlayer: function (e) {
+    console.log('selectPlayer');
     var enemy = 0;
     var enemyToDraw = 0; // number in id of enemy
     chars.index = parseInt(e[e.length - 1]); // gets selected character index from id
     this.drawCharDiv('player', 'hero', chars.index);
-    $("#charSelect").empty();
-    animate.spin('#heroImage0');
     for (var i = 0; i < chars.names.length; i++) { // moves remaining characters to enemy area
       if (chars.index != enemy) {
-        this.drawCharDiv('enemySelect', 'enemy', enemy);
+        this.drawCharDiv('enemySelect', 'enemy', enemy, 3);
         enemyToDraw++;
       }
       enemy++;
     }
+    $("#title0").attr("style", "display: none;");
+    $("#title1").removeAttr("style");
+    $("#charSelect").empty();
+    animate.blink('#enemies-col',10);
+    animate.spin('.heroCard');
     animate.shake("#enemySelect");
   },
 
   selectEnemy: function (e) {
-    if (wins == 2) {
-      $("#" + e).attr("style", "visibility:hidden;"); // keeps div spaced when last emeny removed
-    } else {
-      $("#" + e).attr("style", "display: none;");
-    }
     chars.currentEnemy = parseInt(e[e.length - 1]); // gets selected character index from id
-    this.drawCharDiv('defender', 'defender', chars.currentEnemy);
-    animate.spin('.defenderImage');
+    this.drawCharDiv('defender', 'defender', chars.currentEnemy, 12);
+    // if (wins == 2) {
+      $("#" + e).attr("style", "visibility:hidden;"); // keeps div spaced when last emeny removed
+    // } else {
+    //   $("#" + e).attr("style", "display: none;");
+    // }
+    $("#battleLog").html("You have targeted the " + chars.names[chars.currentEnemy] + " ship.<br>Use the attack button to engage the target.");
+    $("#title2").removeAttr("style");
+    $("#attackBtn").removeAttr("style");
+    $("#logDiv").removeAttr("style");
+
+    animate.spin('.defenderCard');
   },
 
   attack: function () {
@@ -101,10 +137,12 @@ var game = { // game code
         $("#battleLog").html("You Won!!! GAME OVER!!!");
         $(".defenderCard").attr("style", "display: none;");
         $("#refreshBtn").attr("style", "");
+        $("#attackBtn").attr("style", "display: none;");
         gameover = true;
         inBattle = false;
       } else {
         $("#battleLog").html("You have defeated the " + chars.names[chars.currentEnemy] + ", you can choose to fight another enemy.");
+        $("#attackBtn").attr("style", "display: none;");
         animate.shake("#enemySelect");
         $("#defender").empty();
         inBattle = false;
@@ -114,7 +152,7 @@ var game = { // game code
       $("#player").empty();
       this.drawCharDiv('player', 'hero', chars.index);
       $("#defender").empty();
-      this.drawCharDiv('defender', 'defender', chars.currentEnemy);
+      this.drawCharDiv('defender', 'defender', chars.currentEnemy, 12);
       if (chars.hp[chars.index] < 1) {
         $("#battleLog").html("You have been defeated... GAME OVER!!!");
         $("#heroImage0").attr("src", "assets/images/explosion.jpg");
@@ -131,18 +169,22 @@ var game = { // game code
 }
 
 $(document).ready(function () {
-  chars.newGame();
-  for (var i = 0; i < chars.names.length; i++) {
-    game.drawCharDiv('charSelect', 'player', i);
-  }
-  $("#battleLog").html("Select a player to begin.");
-  animate.blink('#battleLog',10);
+  
+  game.newGame();
+  
+  
+  // $("#battleLog").html("Select a player to begin.");
+ 
+  
   $(".playerCard").on("click", function () {
     game.selectPlayer($(this).attr("id"));
+    console.log("click");
+    
     $("#battleLog").html("Select an enemy to attack.");
     $(".enemyCard").on("click", function () {
       if (!inBattle && !gameover) {
-        $("#battleLog").html("Use the attack button to engage target.");
+        animate.blink('#defender-col',10);
+        
         game.selectEnemy($(this).attr("id"));
         inBattle = true;
       }
@@ -154,6 +196,7 @@ $(document).ready(function () {
     }
   });
   $("#refreshBtn").on("click", function () {
-    location.reload();
+    game.newGame();
   });
+
 });

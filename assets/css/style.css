@@ -5,6 +5,7 @@ body {
   background-color: black;
   font-family: 'Teko', sans-serif;
   font-size: 1.15rem;
+  
 }
 
 h1 {
@@ -13,23 +14,35 @@ h1 {
   color: white;
   font-family: 'StarTrek';
   font-size: 50pt;
-  margin: -5px 10px -60px;
+  margin: -5px 10px -10px;
 }
 
 h6 {
   color: white;
   /* font-size: 1.2rem; */
   /* font-family: 'StarTrek'; */
-  font-size: 16pt;
+  font-size: 20pt;
   padding-top: 8px;
   padding-bottom: 0px;
 
 }
 
 p {
-  color: rgb(180, 253, 180);
-  font-size: 1.3rem;
-  padding-top: 10px;
+  /* color: rgb(77, 234, 248); */
+  font-size: 1.5rem;
+  /* padding-top: 10px; */
+  padding: 0px 4px;
+  /* color: white; */
+}
+
+.p2 {
+  /* color: rgb(77, 234, 248); */
+  font-size: 1.5em;
+  /* padding-top: 10px; */
+  padding: px 4px;
+  line-height: 100%;
+  margin: 3px 3px;
+  /* margin: 3px, 4px !important; */
 }
 
 .playerCard {
@@ -38,32 +51,48 @@ p {
   background-color: white;
   border-color: blue;
   padding: 0px;
-}
+  /* margin-left: 12px; */
 
-.heroCard {
+}
+.gameCard {
   border-width: 2px;
   border-style: solid;
+  padding: 0px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+
+.heroCard {
+
   background-color: white;
   border-color: green;
-  padding: 0px;
+  
+  /* margin-left: 12px; */
+
   /* margin: 10px; */
 }
 
 .enemyCard {
-  border-width: 2px;
-  border-style: solid;
+
+
   background-color: red;
   border-color: black;
-  padding: 0px;
+
+  /* margin-left: 12px; */
+  /* margin-bottom: 12px; */
 }
 
 .defenderCard {
-  border-width: 2px;
-  border-style: solid;
+
   background-color: black;
   border-color: green;
   color: white;
-  padding: 0px;
+
+  /* margin-left: 12px; */
+
+}
+
+.shipImage {
+  margin: 30px 0px;
 }
 
 .defenderImage {
@@ -75,6 +104,13 @@ p {
 .btn {
   font-size: 14pt;
   padding: 3px 10px;
+
+
+}
+
+#attackBtn {
+  position: absolute;
+  bottom: 20px;
 }
 
 .rounded {
@@ -82,7 +118,30 @@ p {
 }
 
 #battleLog {
+  color: white;
   height: 62px;
+}
+
+#title2 {
+  margin-top: 20px;
+}
+
+#logDiv {
+  width: 100%;
+  height: 130px;
+  background-color: rgb(0, 0, 255, 0.3);
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+}
+
+#card-bottom {
+  -webkit-transform:rotate(-180deg);
+-moz-transform:rotate(-180deg);
+-o-transform:rotate(-180deg);
+transform:rotate(-180deg);
+ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
 
 @font-face {
