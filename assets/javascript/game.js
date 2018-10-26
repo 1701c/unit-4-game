@@ -80,8 +80,12 @@ var game = { // game code
     if (colWidth === undefined) {
       colWidth = 8;
     }
-    $('#' + parent).append('<div class="col-' + colWidth + ' text-center rounded gameCard ' + child + 'Card" id="' + child + 'Card' + i + '">');
-    $('#' + parent).append('<div class="col-1">');
+    $('#' + parent).append('<div class="col-' + (colWidth+1) + ' col-md-' + colWidth + ' text-center rounded gameCard ' + child + 'Card" id="' + child + 'Card' + i + '">');
+    $('#' + parent).append('<div class="d-none d-md-block col-1">');
+    // $('#' + parent).append('<div class="col-' + (colWidth+1) + ' col-sm-' + colWidth + ' text-center rounded gameCard ' + child + 'Card" id="' + child + 'Card' + i + '">');
+    // $('#' + parent).append('<div class="col-0 col-sm-1">');
+    // $('#' + parent).append('<div class="col-' + colWidth + ' text-center rounded gameCard ' + child + 'Card" id="' + child + 'Card' + i + '">');
+    // $('#' + parent).append('<div class="col-1">');
     $('#' + child + 'Card' + i).append('<p class="p2" style="text-align:left;">' + chars.names[i] + '<span style="float:right;"> HP: ' + chars.hp[i] + '</span></p>');
     $('#' + child + 'Card' + i).append('<img src="' + chars.image[i] + '" class="img-fluid shipImage ' + child + 'Image" id="' + child + 'Image' + i + '"></img>');
     $('#' + child + 'Card' + i).append('<p class="p2" id="card-bottom" style="text-align:left;">' + chars.names[i] + '<span style="float:right;"> HP: ' + chars.hp[i] + '</span></p>');
