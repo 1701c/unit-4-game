@@ -129,6 +129,7 @@ var game = { // game code
       } else { // more enemies remain
         $("#battleLog").html("You have defeated the " + chars.names[chars.currentEnemy] + ", you can choose to fight another enemy.");
         animate.shake("#enemySelect");
+        animate.blink('#enemies-col', 10);
       }
     } else { // 
       chars.hp[chars.index] -= chars.cap[chars.currentEnemy];
@@ -141,6 +142,7 @@ var game = { // game code
         $("#battleLog").html("You have been defeated... GAME OVER!!!");
         $(".heroImage").attr("src", "assets/images/explosion.jpg");
         $("#refreshBtn").attr("style", "");
+        $("#attackBtn").attr("style", "display: none;");
         animate.shake(".heroCard");
       } else { // normal attack
         this.drawCharDiv('player', 'hero', chars.index, 8, 12);
