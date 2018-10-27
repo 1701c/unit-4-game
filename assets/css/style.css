@@ -67,8 +67,15 @@ p {
 }
 
 .btn {
-  font-size: 14pt;
+  font-size: 20pt;
   padding: 3px 10px;
+  width: 100%;
+  position: relative;
+  top: 30px;
+}
+
+#refreshBtn {
+  top: 100px;
 }
 
 .rounded {
