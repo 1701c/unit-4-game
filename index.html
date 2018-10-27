@@ -27,13 +27,13 @@
           <h6>Select Your Character</h6>
         </div>
       </div>
-        <div class="row" id="charSelect">
+      <div class="row" id="charSelect">
       </div>
       <div class="row" id="title1">
-        <div class="col-3">
+        <div class="col-4">
           <h6>Your Character</h6>
         </div>
-        <div class="col-8 text-center" id="enemies-col">
+        <div class="col-8" id="enemies-col">
           <h6>Enemies Available to Attack</h6>
         </div>
       </div>
@@ -41,34 +41,29 @@
         <div class="col-3">
           <div class="row" id="player"></div>
         </div>
-        <!-- <div class="col-1"></div> -->
-        <div class="col-8">
+        <div class="col-9 col-md-8 offset-md-1">
           <div class="row" id="enemySelect"></div>
         </div>
       </div>
       <div class="row" id="title2">
-        <div class="col-3" id="defender-col">
+        <div class="col-2" id="defender-col">
           <h6>Defender</h6>
         </div>
-        <div class="col-8 text-center">
+        <div class="col-2"><button type="button" class="btn btn-light rounded" id="attackBtn">Attack</button>  </div>
+        <div class="col-8">
           <h6>Battle Log</h6>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-3">
           <div class="row" id="defender"></div>
         </div>
-        <div class="col-3">
-          <button type="button" class="btn btn-light rounded" id="attackBtn">Attack</button>   
-          
+        <div class="col-8 offset-1 offset-md-0 rounded" id="logDiv">
+          <p id="battleLog"></p>
+          <button type="button" class="btn btn-light rounded" id="refreshBtn" style="display: none;">Restart</button>
         </div>
-        <div class="col-6 rounded" id="logDiv">
-          <div>
-            <p id="battleLog"></p>
-            <button type="button" class="btn btn-light rounded" id="refreshBtn" style="display: none;">Restart</button>
-          </div>
-        </div> 
       </div>
+    </div>
     </div>
   </body>
 </html>
