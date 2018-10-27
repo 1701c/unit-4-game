@@ -8,7 +8,7 @@ var chars = { // character info and initialization
   image: ["assets/images/federation.jpg", "assets/images/klingon.jpg", "assets/images/romulan.jpg", "assets/images/borg.jpg"],
   hp: [],
   ap: [],
-  baseAp: [8, 16, 7, 4],
+  baseAp: [8, 16, 5, 3],
   index: 0,
   currentEnemy: 0,
 
@@ -54,8 +54,16 @@ var game = { // game code
     }
     $("#title0").removeAttr("style");
     $("#title1,#title2,#logDiv,.defenderCard,.btn").attr("style", "display: none;");
-    $('#player').empty();
+    $('#player,#enemySelect').empty();
     animate.blink('#title0-col', 10);
+    $(".playerCard").on("click", function () {
+      game.selectPlayer($(this).attr("id"));
+      $(".enemyCard").on("click", function () {
+        if (!inBattle && !gameover) {
+          game.selectEnemy($(this).attr("id"));
+        }
+      });
+    });
   },
 
   drawCharDiv: function (parent, child, i, colWidth, colWidthSmall) { // draws cards
@@ -131,7 +139,7 @@ var game = { // game code
         chars.hp[chars.index] = 0; // no negative hp
         this.drawCharDiv('player', 'hero', chars.index, 8, 12);
         $("#battleLog").html("You have been defeated... GAME OVER!!!");
-        $("#heroImage0").attr("src", "assets/images/explosion.jpg");
+        $(".heroImage").attr("src", "assets/images/explosion.jpg");
         $("#refreshBtn").attr("style", "");
         animate.shake(".heroCard");
       } else { // normal attack
@@ -145,14 +153,6 @@ var game = { // game code
 
 $(document).ready(function () {
   game.newGame();
-  $(".playerCard").on("click", function () {
-    game.selectPlayer($(this).attr("id"));
-    $(".enemyCard").on("click", function () {
-      if (!inBattle && !gameover) {
-        game.selectEnemy($(this).attr("id"));
-      }
-    });
-  });
   $("#attackBtn").on("click", function () {
     if (inBattle && !gameover) {
       game.attack();
