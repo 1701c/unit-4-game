@@ -1,6 +1,10 @@
 body {
-  background-image: url("../images/green-felt-texture-abstract-background-textures-67584625.jpg");
-  background-color: black;
+  background-image: url("../images/388084.jpg");
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;  background-color: black;
   font-family: 'Teko', sans-serif;
   font-size: 1.15rem;
   color: #222;
