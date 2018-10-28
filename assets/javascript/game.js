@@ -18,7 +18,7 @@ var chars = { // character info and initialization
   }
 };
 
-var animate = {
+var animator = {
   shake: function (r) { //animations for cards
     $(r).css("position", "relative");
     for (var x = 1; x <= 3; x++) {
@@ -55,7 +55,7 @@ var game = { // game code
     $("#charsTitleDiv").removeAttr("style");
     $("#charAndEnemyDiv,#battleTitleDiv,#logDiv,.defenderCard,.btn").attr("style", "display: none;");
     $('#heroDiv,#enemySelectDiv').empty();
-    animate.blink('#sycTitleCol', 10);
+    animator.blink('#sycTitleCol', 10);
     $(".playerCard").on("click", function () {
       game.selectPlayer($(this).attr("id"));
       $(".enemyCard").on("click", function () {
@@ -93,9 +93,9 @@ var game = { // game code
     $("#charsTitleDiv").attr("style", "display: none;");
     $("#charAndEnemyDiv").removeAttr("style");
     $("#charsDiv").empty();
-    animate.blink('#enemiesTitleDiv', 10);
-    animate.spin('.heroCard');
-    animate.shake(".enemyCard");
+    animator.blink('#enemiesTitleDiv', 10);
+    animator.spin('.heroCard');
+    animator.shake(".enemyCard");
   },
 
   selectEnemy: function (e) {
@@ -106,7 +106,7 @@ var game = { // game code
     $("#" + e).attr("style", "visibility:hidden;");
     $("#battleLog").html("You have targeted the " + chars.names[chars.currentEnemy] + " ship.<br>Use the attack button to engage the target.");
     $("#battleTitleDiv,#attackBtn,#logDiv").removeAttr("style");
-    animate.spin('.defenderCard');
+    animator.spin('.defenderCard');
   },
 
   attack: function () {
@@ -120,15 +120,15 @@ var game = { // game code
       this.drawcharsDiv('defenderDiv', 'defender', chars.currentEnemy, 8, 12);
       $(".defenderImage").attr("src", "assets/images/explosion.jpg");
       $("#attackBtn").attr("style", "display: none;");
-      animate.shake("#defenderDiv");
+      animator.shake("#defenderDiv");
       if (wins === 3) { // last enemy, game won
         gameover = true;
         $("#battleLog").html("You Won!!! GAME OVER!!!");
         $("#refreshBtn").attr("style", "");
       } else { // more enemies remain
         $("#battleLog").html("You have defeated the " + chars.names[chars.currentEnemy] + ", you can choose to fight another enemy.");
-        animate.shake("#enemySelectDiv");
-        animate.blink('#enemiesTitleDiv', 10);
+        animator.shake("#enemySelectDiv");
+        animator.blink('#enemiesTitleDiv', 10);
       }
     } else { // 
       chars.hp[chars.index] -= chars.cap[chars.currentEnemy];
@@ -142,11 +142,11 @@ var game = { // game code
         $(".heroImage").attr("src", "assets/images/explosion.jpg");
         $("#refreshBtn").attr("style", "");
         $("#attackBtn").attr("style", "display: none;");
-        animate.shake(".heroCard");
+        animator.shake(".heroCard");
       } else { // normal attack
         this.drawcharsDiv('heroDiv', 'hero', chars.index, 8, 12);
         $("#battleLog").html("You attacked the " + chars.names[chars.currentEnemy] + " for " + chars.ap[chars.index] + " damage.<br>The " + chars.names[chars.currentEnemy] + " attacked you back for " + chars.cap[chars.currentEnemy] + " damage.");
-        animate.blink(".defenderImage,.heroImage", 2);
+        animator.blink(".defenderImage,.heroImage", 2);
       }
     }
   }
