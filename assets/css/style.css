@@ -4,10 +4,9 @@ body {
   background-repeat:  no-repeat;
   background-attachment: fixed;
   background-size:  cover;
-  background-color: #999;  background-color: black;
+  background-color: #999;
   font-family: 'Teko', sans-serif;
   font-size: 1.15rem;
-  color: #222;
 }
 
 h1 {
@@ -41,28 +40,26 @@ p {
   border-width: 1px;
   border-style: solid;
   padding: 0px;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
-  }
-
-.playerCard {
-  background-color: rgb(243, 238, 215);
-  border-color: rgb(163, 160, 144);
+  box-shadow: 10px 10px 5px rgba(3, 152, 244, 0.3);
+  background-color: #A6B2BE;
+  border-color: rgb(126, 136, 146);
 }
 
 .heroCard {
-  background-color:  rgb(243, 238, 215);;
-  border-color:rgb(163, 160, 144);
+  background-color: rgb(23, 139, 211);
+  border-color:  rgb(17, 107, 163);
+  color: rgb(224, 224, 224);
 }
 
 .enemyCard {
-  background-color: rgb(119, 47, 47);
-  border-color: rgb(78, 31, 31);
+  background-color: #586473;
+  border-color: #3d4550;
   color: rgb(224, 224, 224);
 }
 
 .defenderCard {
-  background-color: rgb(61, 75, 62);
-  border-color: rgb(41, 51, 42);
+  background-color: #E0733E;
+  border-color:  rgb(175, 91, 48);
   color: rgb(224, 224, 224);
 }
 
@@ -76,6 +73,8 @@ p {
   width: 100%;
   position: relative;
   top: 30px;
+  background-color: #0397F4;
+  border-color: rgb(3, 117, 189);
 }
 
 #refreshBtn {
@@ -90,18 +89,20 @@ p {
   color: white;
   height: 62px;
   padding-top: 15px;
+  text-shadow: 0 0 8px rgb(2, 34, 88);
 }
 
-#title2 {
+#battleTitleDiv {
   margin-top: 20px;
 }
 
 #logDiv {
-  background-color: rgba(0, 195, 255, 0.397);
+  background-color: rgba(3, 152, 244, 0.3);
   border-style: solid;
   border-width: 2px;
-  border-color: rgb(0, 195, 255);
-  box-shadow: 0px 0px 0px 2px rgba(0, 195, 255, 0.3);
+  border-color: #0397F4;
+  box-shadow: 0px 0px 0px 5px rgba(0, 195, 255, 0.3);
+  box-shadow: 10px 10px 5px rgba(3, 152, 244, 0.3);
 
 }
 
